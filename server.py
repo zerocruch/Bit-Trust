@@ -229,6 +229,7 @@ def webserver():
             return render_template('./transaction-history.html', bc=bc, loggedIn=True, balance=balance, wallet=session['id'])
         
     
+    
     @app.route('/logout')
     def logout():
         session.pop('id', None)
