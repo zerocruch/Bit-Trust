@@ -144,30 +144,36 @@ def webserver():
                 fullName = request.form.get('fullName')
                 username = request.form.get('username')
                 email = request.form.get('email')
+                phoneNumber = request.form.get('phoneNumber')
                 passphrase = generate_passphrase(12)
+                verificationCode = 478694 #send sms to phone number
                 if check_username_exists(database, username) is None and check_email_exists(database, email) is None:
                     if check_passphrase_exists(database, passphrase) is None:
-                        publicKey = insert_user(database, fullName, username, email, passphrase)
+                        publicKey = insert_user(database, fullName, username, email, passphrase, phoneNumber)
                         #lastMessage = f'!transaction ZEROCRUCH {publicKey} 100'
                         #broadCastMessage(lastMessage, clients)
                         session['id'] = publicKey
-                        return render_template('./verification.html', passphrase=passphrase, loggedIn=True, balance=0)
+                        return render_template('./verificationSMS.html', passphrase=passphrase, loggedIn=False, balance=0, verificationCode=verificationCode)
                     else:
                         while True:
                             passphrase = generate_passphrase(12)
                             if check_passphrase_exists(database, passphrase) is None:
-                                publicKey = insert_user(database, fullName, username, email, passphrase)
+                                publicKey = insert_user(database, fullName, username, email, passphrase, phoneNumber)
                                 #lastMessage = f'!transaction ZEROCRUCH {publicKey} 100'
                                 #broadCastMessage(lastMessage, clients)
                                 session['id'] = publicKey
-                                return render_template('./verification.html', passphrase=passphrase, loggedIn=True, balance=0)
+                                return render_template('./verificationSMS.html', passphrase=passphrase, loggedIn=False, balance=0, verificationCode=verificationCode)
                 else:
-                    return render_template('./register.html', fullName=fullName, username=username, email=email, erreur="user Already Exist", loggedIn=False, balance=0)
+                    return render_template('./register.html', fullName=fullName, username=username, email=email, erreur="user Already Exist", loggedIn=False, balance=0, phoneNumber=phoneNumber)
                 #bc = BlockchainData.ShowBlockchain()
             return render_template('./register.html', loggedIn=False, balance=0)
         else:
             return redirect(url_for('index'))
     
+    @app.route('/ver', methods=['GET', 'POST'])
+    def ver():
+        return render_template('./verificationSMS.html', passphrase="passphrase", loggedIn=False, balance=0, verificationCode=1256)
+
     @app.route('/transaction', methods=['GET', 'POST'])
     def transaction():
         global lastMessage

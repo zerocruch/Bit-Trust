@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Bit Trust Charity - Donation</title>
+    <title>Bit Trust Charity - Verification</title>
 
     <!-- CSS FILES -->
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
@@ -136,12 +136,30 @@ https://templatemo.com/tm-581-kind-heart-charity
                     {% endif %}
 
 
+
                 </ul>
             </div>
         </div>
     </nav>
 
     <main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         <section class="donate-section">
             <div class="section-overlay"></div>
@@ -150,139 +168,79 @@ https://templatemo.com/tm-581-kind-heart-charity
 
                     <div class="col-lg-6 col-12 mx-auto">
                         <form class="custom-form donate-form" method="post" role="form">
-                            <h3 class="mb-4">Make a donation</h3>
-                            <h3 class="mb-4" style="color: {{color}};">{{responce}}</h3>
-                            
+                            <h3 class="mb-4">Verification</h3>
 
-                            <div class="row">
-                              
+                            <div class="row" id="verification">
 
+                                <div class="col-lg-12 col-12 mt-3">
+                                    <!-- Adjust the height or margin as needed -->
+                                </div>
                                 <div class="col-lg-12 col-12">
-                                    <h5 class="mt-2 mb-3">Select an amount</h5>
+                                    <h5 class="mb-3">SMS Verification Code:</h5>
                                 </div>
 
-                                <div class="col-lg-3 col-md-6 col-6 form-check-group">
-                                    <div class="form-check form-check-radio">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault1" value="10">
-                                        <label class="form-check-label" for="flexRadioDefault1">
-                                            10TND
-                                        </label>
-                                    </div>
+                                <div class="col-lg-13 col-12 mt-2">
+                                    <input type="text" name="vcode" id="vcode" class="form-control"
+                                        placeholder="SMS Verification Code:" required>
                                 </div>
-
-                                <div class="col-lg-3 col-md-6 col-6 form-check-group">
-                                    <div class="form-check form-check-radio">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault2" value="15">
-                                        <label class="form-check-label" for="flexRadioDefault2">
-                                            15TND
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-3 col-md-6 col-6 form-check-group">
-                                    <div class="form-check form-check-radio">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault3" value="20">
-                                        <label class="form-check-label" for="flexRadioDefault3">
-                                            20TND
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-3 col-md-6 col-6 form-check-group">
-                                    <div class="form-check form-check-radio">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault4" value="30">
-                                        <label class="form-check-label" for="flexRadioDefault4">
-                                            30TND
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-3 col-md-6 col-6 form-check-group">
-                                    <div class="form-check form-check-radio">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault5" value="45">
-                                        <label class="form-check-label" for="flexRadioDefault5" >
-                                            45TND
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-3 col-md-6 col-6 form-check-group">
-                                    <div class="form-check form-check-radio">
-                                        <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                            id="flexRadioDefault6" value="50">
-                                        <label class="form-check-label" for="flexRadioDefault6">
-                                            50TND
-                                        </label>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-6 col-12 form-check-group">
-                                    <div class="input-group">
-                                        <span class="input-group-text" id="basic-addon1">$</span>
-
-                                        <input type="text" class="form-control" placeholder="Custom amount"
-                                            aria-label="Username" aria-describedby="basic-addon1" name="flexRadioDefault">
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-12 col-12">
-                                    <h5 class="mt-1">Your Wallet</h5>
-                                </div>
-
-                                <div class="col-lg-13 col-12">
-                                    <input type="text" name="Wallet" class="form-control"
-                                        placeholder="Wallet Address" disabled value="{{wallet}}">
-                                </div>
-
-                                <div class="col-lg-12 col-12">
-                                    <h5 class="mt-1">Donnate To</h5>
-                                </div>
-
-                                <div class="col-lg-13 col-12">
-                                    <input type="text" name="To" id="To" class="form-control"
-                                        placeholder="Wallet Address" required>
-                                </div>
-
                                 
 
-                                <!--<div class="col-lg-12 col-12">
-                                    <h5 class="mt-4 pt-1">Choose Payment</h5>
-                                </div>
-
-                                <div class="col-lg-12 col-12 mt-2">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="DonationPayment"
-                                            id="flexRadioDefault9">
-                                        <label class="form-check-label" for="flexRadioDefault9">
-                                            <i class="bi-credit-card custom-icon ms-1"></i>
-                                            Debit or Credit card
-                                        </label>
-                                    </div>
-
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="DonationPayment"
-                                            id="flexRadioDefault10">
-                                        <label class="form-check-label" for="flexRadioDefault10">
-                                            <i class="bi-paypal custom-icon ms-1"></i>
-                                            Paypal
-                                        </label>
-                                    </div>-->
-
-                                    <button type="submit" class="form-control mt-4">Submit Donation</button>
+                                <button type="submit" class="form-control mt-4" onclick="verification();">Verify</button>
                                 </div>
                             </div>
                         </form>
                     </div>
 
                 </div>
+
+                <script>
+                    function verification(){
+                        vcode = document.getElementById('vcode').value;
+                        if (vcode == '{{verificationCode}}'){
+                            document.getElementById('verification').innerHTML = `<div class="alert alert-warning" role="alert">
+                                    <i class="bi-exclamation-triangle-fill"></i> Warning: Please save this code, you won't see it again
+                                </div>
+
+                                <div class="col-lg-12 col-12 mt-3">
+                                    <!-- Adjust the height or margin as needed -->
+                                </div>
+                    
+                               <div class="col-lg-12 col-12">
+                                    <h5 class="mb-3">Your Pass Phrase is :</h5>
+                                </div>
+                                
+                                <p>{{passphrase}}</p>
+                                <button type="submit" class="form-control mt-4" onclick="window.location.href='../login'">Okay</button>`;
+                        }
+
+                    }
+                </script>
             </div>
         </section>
     </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <footer class="site-footer">
         <div class="container">

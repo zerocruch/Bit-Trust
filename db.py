@@ -11,7 +11,8 @@ def createDatabase(database):
             username TEXT NOT NULL,
             email TEXT NOT NULL,
             passphrase TEXT NOT NULL,
-            publicKey TEXT NOT NULL
+            publicKey TEXT NOT NULL,
+            phoneNumber TEXT NOT NULL
         )
     ''')
     conn.commit()
@@ -77,7 +78,7 @@ def check_passphrase_exists(database, passphrase):
 
     return user if user is not None else None
 
-def insert_user(database, fullName, username, email, passphrase):
+def insert_user(database, fullName, username, email, passphrase, phoneNumber):
     # Connect to the SQLite database (or create it if it doesn't exist)
     conn = sqlite3.connect(database)
 
@@ -87,9 +88,9 @@ def insert_user(database, fullName, username, email, passphrase):
 
     # Insert a new user into the 'users' table
     cursor.execute('''
-        INSERT INTO users (fullName, username, email, passphrase, publicKey)
-        VALUES (?, ?, ?, ?, ?)
-    ''', (fullName, username, email, passphrase, publicKey))
+        INSERT INTO users (fullName, username, email, passphrase, publicKey, phoneNumber)
+        VALUES (?, ?, ?, ?, ?, ?)
+    ''', (fullName, username, email, passphrase, publicKey, phoneNumber))
 
     # Commit the changes to the database
     conn.commit()

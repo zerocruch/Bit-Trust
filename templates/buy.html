@@ -40,28 +40,11 @@ https://templatemo.com/tm-581-kind-heart-charity
                     <p class="d-flex mb-0">
                         <i class="bi-envelope me-2"></i>
 
-                        <a href="mailto:info@company.com">
-                         mohammedbenhalima0@gmail.com
+                        <a href="mailto:mohamedbenhalima0@gmail.com">
+                            mohamedbenhalima0@gmail.com
                         </a>
                     </p>
                 </div>
-
-             
-                <div class="col-lg-9 col-12 d-flex justify-content-end align-items-start">
-                    {% if loggedIn == False %}
-                        <a href="../login"   class="nav-link btn" style="color: white;" >Login</a>
-                        
-                        <div class="col-lg-1  ">
-                            <!-- Adjust the height or margin as needed -->
-                        </div>
-                        <a href="../signup" class="nav-link btn" style="color: white;">Register</a>
-                    {% else %}
-                        <a href="../logout"   class="nav-link btn" style="color: white;" >Logout</a>
-                    {% endif %}
-
-                </div>
-
-
 
 
 
@@ -127,21 +110,31 @@ https://templatemo.com/tm-581-kind-heart-charity
                     </li>
 
 
-                    <li class="nav-item ms-3">
-                        <a class="nav-link " href="../buy">Deposit</a>
-                    </li>
+                    {% if loggedIn == False %}
+                        <li class="nav-item ms-3">
+                            <a class="nav-link " href="../login">Login</a>
+                        </li>
+    
+                        <li class="nav-item ms-3">
+                            <a class="nav-link" href="../signup">Register</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item ms-3">
+                            <a class="nav-link " href="../buy">Deposit</a>
+                        </li>
 
-                    <li class="nav-item ms-3">
-                        <a class="nav-link" href="../transactions">Track Transactions</a>
-                    </li>
+                        <li class="nav-item ms-3">
+                            <a class="nav-link" href="../transactions">Track Transactions</a>
+                        </li>
 
-                    <li class="nav-item ms-3">
-                        <a class="nav-link" href="../buy">Balance : {{balance}}TND</a>
-                    </li>                    
+                        <li class="nav-item ms-3">
+                            <a class="nav-link" href="../buy">Balance : {{balance}}TND</a>
+                        </li>
+                        <li class="nav-item ms-3">
+                            <a class="nav-link" href="../logout">Logout</a>
+                        </li>
+                    {% endif %}
 
-                    <li class="nav-item ms-3">
-                        <a class="nav-link custom-btn custom-border-btn btn" href="../transaction">Donate</a>
-                    </li>
 
                 </ul>
             </div>
@@ -319,8 +312,8 @@ https://templatemo.com/tm-581-kind-heart-charity
                     <p class="text-white d-flex">
                         <i class="bi-envelope me-2"></i>
 
-                        <a href="mailto:mohammedbenhalima0@gmail.comg" class="site-footer-link">
-                            mohammedbenhalima0@gmail.com
+                        <a href="mailto:mohamedbenhalima0@gmail.com" class="site-footer-link">
+                            mohamedbenhalima0@gmail.com
                         </a>
                     </p>
 
